@@ -22,17 +22,13 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-border"
+          ? "bg-[hsl(240,10%,4%)]/90 backdrop-blur-xl border-b border-[hsl(240,10%,15%)] shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <a
-            href="#home"
-            className="text-2xl font-bold text-primary tracking-wide"
-            style={{ fontFamily: "var(--app-font-sans)" }}
-          >
+          <a href="#home" className="text-2xl font-bold gradient-text tracking-wide">
             آدا
           </a>
 
@@ -41,7 +37,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium text-sm"
+                className="text-[hsl(240,5%,65%)] hover:text-white transition-colors duration-200 font-medium text-sm"
               >
                 {link.label}
               </a>
@@ -50,14 +46,14 @@ export default function Navbar() {
               href="https://t.me/Ada778877"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity"
+              className="btn-gradient text-white px-5 py-2 rounded-xl text-sm font-bold"
             >
               ابدأ الآن
             </a>
           </div>
 
           <button
-            className="md:hidden p-2 rounded-lg text-foreground hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-lg text-[hsl(240,5%,65%)] hover:text-white hover:bg-[hsl(240,10%,10%)] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="تبديل القائمة"
           >
@@ -67,12 +63,12 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-border px-4 py-4 space-y-3 shadow-lg">
+        <div className="md:hidden bg-[hsl(240,10%,6%)]/95 backdrop-blur-xl border-t border-[hsl(240,10%,15%)] px-4 py-4 space-y-2 shadow-xl">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block text-foreground/80 hover:text-primary py-2 font-medium transition-colors"
+              className="block text-[hsl(240,5%,65%)] hover:text-white py-2.5 font-medium transition-colors border-b border-[hsl(240,10%,12%)] last:border-0"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -82,7 +78,7 @@ export default function Navbar() {
             href="https://t.me/Ada778877"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-primary text-primary-foreground px-4 py-2 rounded-xl text-center font-semibold hover:opacity-90 transition-opacity"
+            className="block btn-gradient text-white px-4 py-3 rounded-xl text-center font-bold mt-2"
           >
             ابدأ الآن
           </a>

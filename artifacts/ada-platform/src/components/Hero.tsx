@@ -3,41 +3,53 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, hsl(258,80%,97%) 0%, hsl(220,20%,97%) 40%, hsl(258,60%,94%) 100%)",
-      }}
+      style={{ background: "hsl(240, 10%, 4%)" }}
     >
+      {/* Ambient glow blobs */}
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-15 pointer-events-none"
+        style={{ background: "hsl(262, 83%, 58%)" }}
+      />
+      <div
+        className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-10 pointer-events-none"
+        style={{ background: "#818cf8" }}
+      />
+
+      {/* Grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 80%, hsl(258,80%,70%) 0%, transparent 50%), radial-gradient(circle at 80% 20%, hsl(220,80%,70%) 0%, transparent 50%)",
+            "linear-gradient(hsl(240,10%,80%) 1px, transparent 1px), linear-gradient(90deg, hsl(240,10%,80%) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
         }}
       />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center pt-24 pb-16">
-        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-8">
+        {/* Badge */}
+        <div
+          className="inline-flex items-center gap-2 border text-sm font-semibold mb-8 px-4 py-2 rounded-full"
+          style={{
+            background: "rgba(124, 58, 237, 0.1)",
+            borderColor: "rgba(124, 58, 237, 0.3)",
+            color: "#c4b5fd",
+          }}
+        >
           <span>🚀</span>
           <span>منصة التعلم الرقمي الأولى</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
           منصة{" "}
-          <span className="text-primary relative">
-            آدا
-            <span
-              className="absolute -bottom-1 right-0 left-0 h-1 rounded-full bg-primary/30"
-            />
-          </span>{" "}
+          <span className="gradient-text">آدا</span>{" "}
           للتعلم الرقمي
         </h1>
 
-        <p className="text-xl sm:text-2xl text-muted-foreground font-medium mb-6">
+        <p className="text-xl sm:text-2xl font-medium mb-6" style={{ color: "hsl(240,5%,65%)" }}>
           طوّر مهاراتك التقنية والمهنية بطريقة عملية واحترافية
         </p>
 
-        <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed mb-10">
+        <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10" style={{ color: "hsl(240,5%,55%)" }}>
           نوفر دورات تدريبية مصممة بعناية لتأهيلك لسوق العمل، مع تركيز على
           التطبيق العملي والفهم الحقيقي، مو مجرد محتوى نظري.
         </p>
@@ -45,38 +57,41 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#courses"
-            className="bg-primary text-primary-foreground px-8 py-4 rounded-2xl text-lg font-bold hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5"
+            className="btn-gradient text-white px-8 py-4 rounded-xl text-lg font-bold w-full sm:w-auto text-center"
           >
             استكشف الدورات
           </a>
           <a
             href="#why-ada"
-            className="bg-white text-primary border-2 border-primary/20 px-8 py-4 rounded-2xl text-lg font-bold hover:bg-primary/5 transition-all duration-200"
+            className="text-white px-8 py-4 rounded-xl text-lg font-bold w-full sm:w-auto text-center transition-all duration-300 hover:bg-[hsl(240,10%,10%)]"
+            style={{
+              border: "1px solid hsl(240,10%,20%)",
+              background: "hsl(240,10%,8%)",
+            }}
           >
             ليش تختار آدا؟
           </a>
         </div>
 
+        {/* Stats */}
         <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
           {[
             { num: "١٣+", label: "دورة متخصصة" },
             { num: "١٠٠٪", label: "تطبيق عملي" },
-            { num: "مرن", label: "تعلم بالسرعة التي تناسبك" },
+            { num: "مرن", label: "تعلم بأي وقت" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl font-bold text-primary">{stat.num}</div>
-              <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+              <div className="text-2xl font-bold gradient-text">{stat.num}</div>
+              <div className="text-xs mt-1" style={{ color: "hsl(240,5%,55%)" }}>{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Bottom fade */}
       <div
-        className="absolute bottom-0 right-0 left-0 h-24"
-        style={{
-          background:
-            "linear-gradient(to top, hsl(220,20%,97%), transparent)",
-        }}
+        className="absolute bottom-0 right-0 left-0 h-32 pointer-events-none"
+        style={{ background: "linear-gradient(to top, hsl(240,10%,4%), transparent)" }}
       />
     </section>
   );

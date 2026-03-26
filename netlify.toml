@@ -1,0 +1,8 @@
+[build]
+  command = "pnpm --filter @workspace/ada-platform run build"
+  publish = "artifacts/ada-platform/dist/public"
+
+[build.environment]
+  PORT = "5173"
+  BASE_PATH = "/"
+  NODE_ENV = "production"
